@@ -127,11 +127,9 @@ nav.scrolled{background:rgba(13,17,23,.85);backdrop-filter:blur(14px);padding:.9
 #about{background:linear-gradient(180deg,#161b22,#0d1117)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1300px;margin:0 auto;width:100%}
 .about-visual{position:relative}
-.about-visual .frame{border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;position:relative;background:linear-gradient(145deg,#222a38,#161b22)}
-.about-visual .frame::before{content:'';position:absolute;inset:0;background:
-  repeating-linear-gradient(45deg,rgba(201,162,39,.04) 0 2px,transparent 2px 22px),
-  radial-gradient(circle at 50% 40%,rgba(201,162,39,.18),transparent 65%)}
-.about-visual .frame .scaffold{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:5rem;opacity:.85}
+.about-visual .frame{border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;position:relative;background:#161b22}
+.about-visual .frame img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05)}
+.about-visual .frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(13,17,23,.5));pointer-events:none}
 .about-visual .badge{position:absolute;bottom:-22px;right:-22px;background:var(--gold);color:#111;border-radius:14px;padding:1.2rem 1.6rem;text-align:center;box-shadow:var(--shadow)}
 .about-visual .badge .num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;line-height:1}
 .about-visual .badge .lbl{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin-top:.3rem}
@@ -161,6 +159,10 @@ nav.scrolled{background:rgba(13,17,23,.85);backdrop-filter:blur(14px);padding:.9
 .service-card .num{position:absolute;top:1.4rem;right:1.6rem;font-family:'Playfair Display',serif;font-size:1.4rem;color:rgba(201,162,39,.3);font-weight:700}
 .service-card .icon{width:54px;height:54px;border-radius:12px;background:rgba(201,162,39,.12);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.4rem;transition:all .4s}
 .service-card:hover .icon{background:var(--gold);color:#111;transform:rotate(-6deg) scale(1.05)}
+.service-card .thumb{width:100%;height:160px;border-radius:12px;overflow:hidden;margin-bottom:1.2rem;position:relative}
+.service-card .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.service-card:hover .thumb img{transform:scale(1.08)}
+.service-card .thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(13,17,23,.5));pointer-events:none}
 .service-card h3{font-size:1.3rem;margin-bottom:.8rem}
 .service-card p{color:var(--muted);font-size:.92rem;margin-bottom:1.2rem}
 .service-card .more{color:var(--gold);font-size:.82rem;letter-spacing:1px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:.5rem;transition:gap .3s}
@@ -195,6 +197,8 @@ nav.scrolled{background:rgba(13,17,23,.85);backdrop-filter:blur(14px);padding:.9
 .contact-item .ic{width:44px;height:44px;border-radius:10px;background:rgba(201,162,39,.15);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
 .contact-item .tx b{display:block;color:var(--ivory);font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.3rem;font-weight:600}
 .contact-item .tx span{color:var(--muted);font-size:.92rem}
+.contact-item .tx a{color:var(--muted);font-size:.92rem;text-decoration:none;transition:color .3s;word-break:break-all}
+.contact-item .tx a:hover{color:var(--gold)}
 .contact-form{background:rgba(28,35,48,.5);border:1px solid var(--line);border-radius:16px;padding:2.4rem}
 .contact-form h3{font-size:1.5rem;margin-bottom:.4rem}
 .contact-form>p{color:var(--muted);font-size:.9rem;margin-bottom:1.8rem}
@@ -216,6 +220,10 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
 .footer-col ul li{margin-bottom:.6rem}
 .footer-col ul a{color:var(--muted);text-decoration:none;font-size:.88rem;transition:color .3s}
 .footer-col ul a:hover{color:var(--gold)}
+.footer-contact{margin-bottom:1.2rem!important}
+.footer-contact li{margin-bottom:.5rem!important}
+.footer-contact a{display:inline-flex;align-items:center;gap:.6rem}
+.footer-contact a i{color:var(--gold);width:14px;text-align:center}
 .social-links{display:flex;gap:.7rem}
 .social-links a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);color:var(--muted);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s}
 .social-links a:hover{background:var(--gold);color:#111;border-color:var(--gold);transform:translateY(-3px)}
@@ -346,7 +354,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
   <div class="about-grid">
     <div class="about-visual reveal">
       <div class="frame">
-        <div class="scaffold"><i class="fas fa-building"></i></div>
+        <img src="images/about.jpg" alt="Veerabhadra Constructions project showcase" loading="lazy">
       </div>
       <div class="badge">
         <div class="num">12+</div>
@@ -385,6 +393,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
   <div class="services-grid">
     <div class="service-card reveal">
       <div class="num">01</div>
+      <div class="thumb"><img src="images/service-residential.jpg" alt="Residential construction project" loading="lazy"></div>
       <div class="icon"><i class="fas fa-house-chimney"></i></div>
       <h3>Residential Construction</h3>
       <p>From custom homes to apartment complexes, we build living spaces that combine beauty, functionality, and durability.</p>
@@ -392,6 +401,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
     </div>
     <div class="service-card reveal d1">
       <div class="num">02</div>
+      <div class="thumb"><img src="images/service-commercial.jpg" alt="Commercial construction project" loading="lazy"></div>
       <div class="icon"><i class="fas fa-building-columns"></i></div>
       <h3>Commercial Construction</h3>
       <p>We specialize in constructing office buildings, retail spaces, and other commercial properties that meet business needs.</p>
@@ -399,6 +409,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
     </div>
     <div class="service-card reveal d2">
       <div class="num">03</div>
+      <div class="thumb"><img src="images/service-renovation.jpg" alt="Renovation and remodeling work" loading="lazy"></div>
       <div class="icon"><i class="fas fa-paint-roller"></i></div>
       <h3>Renovation & Remodeling</h3>
       <p>Transform your existing space with our expert renovation services that breathe new life into any property.</p>
@@ -406,6 +417,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
     </div>
     <div class="service-card reveal">
       <div class="num">04</div>
+      <div class="thumb"><img src="images/service-interior.jpg" alt="Interior design showcase" loading="lazy"></div>
       <div class="icon"><i class="fas fa-couch"></i></div>
       <h3>Interior Design</h3>
       <p>Our design team creates beautiful, functional interiors that reflect your style and meet your practical needs.</p>
@@ -413,6 +425,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
     </div>
     <div class="service-card reveal d1">
       <div class="num">05</div>
+      <div class="thumb"><img src="images/service-project-management.jpg" alt="Project management at work" loading="lazy"></div>
       <div class="icon"><i class="fas fa-clipboard-check"></i></div>
       <h3>Project Management</h3>
       <p>We oversee every aspect of your construction project to ensure it's completed on time and within budget.</p>
@@ -420,6 +433,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
     </div>
     <div class="service-card reveal d2">
       <div class="num">06</div>
+      <div class="thumb"><img src="images/service-construction-consulting.jpg" alt="Construction consulting meeting" loading="lazy"></div>
       <div class="icon"><i class="fas fa-hard-hat"></i></div>
       <h3>Construction Consulting</h3>
       <p>Expert advice on all aspects of construction, from planning and design to materials and regulations.</p>
@@ -438,7 +452,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
   </div>
   <div class="projects-grid">
     <div class="project-card reveal">
-      <div class="bg" style="background:linear-gradient(135deg,#3a2f1f,#1c2330)"></div>
+      <div class="bg" style="background-image:url('images/about.jpg')"></div>
       <div class="overlay"></div>
       <div class="arrow"><i class="fas fa-arrow-right"></i></div>
       <div class="content">
@@ -449,7 +463,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
       </div>
     </div>
     <div class="project-card reveal d1">
-      <div class="bg" style="background:linear-gradient(135deg,#2f3a1f,#1c2330)"></div>
+      <div class="bg" style="background-image:url('images/project-sree-villas.jpg')"></div>
       <div class="overlay"></div>
       <div class="arrow"><i class="fas fa-arrow-right"></i></div>
       <div class="content">
@@ -460,7 +474,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
       </div>
     </div>
     <div class="project-card reveal d2">
-      <div class="bg" style="background:linear-gradient(135deg,#1f2f3a,#1c2330)"></div>
+      <div class="bg" style="background-image:url('images/about.jpg')"></div>
       <div class="overlay"></div>
       <div class="arrow"><i class="fas fa-arrow-right"></i></div>
       <div class="content">
@@ -471,7 +485,7 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
       </div>
     </div>
     <div class="project-card reveal d3">
-      <div class="bg" style="background:linear-gradient(135deg,#3a1f2f,#1c2330)"></div>
+      <div class="bg" style="background-image:url('images/about.jpg')"></div>
       <div class="overlay"></div>
       <div class="arrow"><i class="fas fa-arrow-right"></i></div>
       <div class="content">
@@ -503,11 +517,11 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
       </div>
       <div class="contact-item">
         <div class="ic"><i class="fas fa-phone"></i></div>
-        <div class="tx"><b>Phone</b><span>+91 98496 53030</span></div>
+        <div class="tx"><b>Phone</b><a href="tel:+919849653030">+91 98496 53030</a></div>
       </div>
       <div class="contact-item">
         <div class="ic"><i class="fas fa-envelope"></i></div>
-        <div class="tx"><b>Email</b><span>pradeept3030@gmail.com</span></div>
+        <div class="tx"><b>Email</b><a href="mailto:pradeept3030@gmail.com">pradeept3030@gmail.com</a></div>
       </div>
       <div class="contact-item">
         <div class="ic"><i class="fas fa-clock"></i></div>
@@ -547,6 +561,10 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
     <div class="footer-col">
       <h4>Veerabhadra Constructions</h4>
       <p>Building excellence since 2011. We are committed to delivering quality construction services with integrity and professionalism.</p>
+      <ul class="footer-contact">
+        <li><a href="tel:+919849653030"><i class="fas fa-phone"></i> +91 98496 53030</a></li>
+        <li><a href="mailto:pradeept3030@gmail.com"><i class="fas fa-envelope"></i> pradeept3030@gmail.com</a></li>
+      </ul>
       <div class="social-links">
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
