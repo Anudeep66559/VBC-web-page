@@ -103,25 +103,15 @@ nav.scrolled{background:rgba(13,17,23,.85);backdrop-filter:blur(14px);padding:.9
 .btn-primary:hover{background:var(--gold-soft);transform:translateY(-3px);box-shadow:0 14px 30px rgba(201,162,39,.35)}
 .btn-ghost{padding:.95rem 2rem;border:1px solid var(--line);color:var(--ivory);text-decoration:none;border-radius:30px;letter-spacing:.5px;transition:all .3s;display:inline-flex;align-items:center;gap:.6rem}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-.hero-visual{position:relative;height:480px;opacity:0;animation:fade 1.2s 1.4s ease forwards;display:flex;align-items:center;justify-content:center}
-.hero-logo{
-  width:100%;max-width:420px;aspect-ratio:1/1;
-  background:#e67e22;
-  border-radius:24px;
-  display:flex;align-items:center;justify-content:center;
-  padding:2.5rem;
-  box-shadow:0 30px 70px rgba(230,126,34,.35),0 0 0 1px rgba(201,162,39,.3);
-  position:relative;
-  overflow:hidden;
-  animation:logoFloat 6s ease-in-out infinite;
-}
-.hero-logo::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.12),transparent 60%);
-  pointer-events:none;
-}
-.hero-logo svg{width:100%;height:100%;filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
-@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-visual{position:relative;height:480px;opacity:0;animation:fade 1.2s 1.4s ease forwards}
+.hero-card{position:absolute;border-radius:14px;background:linear-gradient(145deg,rgba(28,35,48,.9),rgba(22,27,34,.7));border:1px solid var(--line);backdrop-filter:blur(8px);padding:1.6rem;box-shadow:var(--shadow)}
+.hero-card.c1{top:0;left:0;width:60%;animation:float 6s ease-in-out infinite}
+.hero-card.c2{top:40%;right:0;width:55%;animation:float 6s ease-in-out infinite reverse;animation-delay:1s}
+.hero-card.c3{bottom:0;left:10%;width:50%;animation:float 7s ease-in-out infinite;animation-delay:.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.hero-card .icon{width:42px;height:42px;border-radius:10px;background:rgba(201,162,39,.15);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.8rem}
+.hero-card h4{font-size:1.05rem;margin-bottom:.4rem}
+.hero-card p{font-size:.85rem;color:var(--muted);line-height:1.5}
 .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.6rem}
 .scroll-hint .mouse{width:22px;height:36px;border:2px solid var(--muted);border-radius:12px;position:relative}
 .scroll-hint .mouse::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:4px;height:6px;background:var(--gold);border-radius:2px;animation:wheel 1.6s infinite}
@@ -267,8 +257,8 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
   .burger{display:flex}
   .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(13,17,23,.96);padding:1.5rem 4vw;gap:1.2rem;border-bottom:1px solid var(--line)}
   .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
-  .hero-visual{height:auto;padding:2rem 0}
-  .hero-logo{max-width:320px}
+  .hero-visual{height:auto;display:flex;flex-direction:column;gap:1rem}
+  .hero-card{position:relative!important;width:100%!important;top:auto;left:auto;right:auto;bottom:auto}
   .services-grid,.projects-grid{grid-template-columns:1fr}
   .pillars{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr);gap:1rem}
@@ -335,39 +325,20 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-logo">
-        <svg viewBox="0 0 300 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Veerabhadra Constructions logo">
-          <!-- V shape (navy blue) -->
-          <path d="M 20,20 L 150,250 L 280,20 L 240,20 L 150,170 L 60,20 Z" fill="#16223d"/>
-          <!-- Buildings cluster (sky blue, right arm of V) -->
-          <rect x="168" y="80" width="28" height="90" fill="#3ba3d8" rx="1"/>
-          <rect x="198" y="48" width="34" height="122" fill="#4db5e8" rx="1"/>
-          <rect x="234" y="68" width="26" height="102" fill="#3ba3d8" rx="1"/>
-          <!-- Building windows (white) -->
-          <g fill="#ffffff">
-            <rect x="177" y="92" width="10" height="10"/>
-            <rect x="177" y="112" width="10" height="10"/>
-            <rect x="177" y="132" width="10" height="10"/>
-            <rect x="177" y="152" width="10" height="10"/>
-            <rect x="208" y="62" width="11" height="11"/>
-            <rect x="208" y="82" width="11" height="11"/>
-            <rect x="208" y="102" width="11" height="11"/>
-            <rect x="208" y="122" width="11" height="11"/>
-            <rect x="208" y="142" width="11" height="11"/>
-            <rect x="242" y="80" width="10" height="10"/>
-            <rect x="242" y="100" width="10" height="10"/>
-            <rect x="242" y="120" width="10" height="10"/>
-            <rect x="242" y="140" width="10" height="10"/>
-          </g>
-          <!-- House (navy blue, lower center) -->
-          <rect x="120" y="185" width="40" height="32" fill="#16223d"/>
-          <path d="M 114,185 L 140,162 L 166,185 Z" fill="#16223d"/>
-          <rect x="152" y="165" width="7" height="18" fill="#16223d"/>
-          <rect x="128" y="198" width="12" height="19" fill="#3ba3d8"/>
-          <rect x="148" y="195" width="10" height="10" fill="#ffffff"/>
-          <!-- Swoosh (navy blue curved line) -->
-          <path d="M 30,275 Q 150,250 270,275" stroke="#16223d" stroke-width="13" fill="none" stroke-linecap="round"/>
-        </svg>
+      <div class="hero-card c1">
+        <div class="icon"><i class="fas fa-drafting-compass"></i></div>
+        <h4>Modern Design</h4>
+        <p>Contemporary architecture tailored to your vision and lifestyle.</p>
+      </div>
+      <div class="hero-card c2">
+        <div class="icon"><i class="fas fa-cubes"></i></div>
+        <h4>Quality Craftsmanship</h4>
+        <p>Fine materials and the latest construction practices, every project.</p>
+      </div>
+      <div class="hero-card c3">
+        <div class="icon"><i class="fas fa-shield-halved"></i></div>
+        <h4>Lasting Value</h4>
+        <p>Structures built to endure — a promise of trust in every brick.</p>
       </div>
     </div>
   </div>
@@ -736,18 +707,20 @@ document.getElementById('newsForm').addEventListener('submit',function(e){
   setTimeout(()=>btn.textContent=orig,2500);
 });
 
-/* ---------- Subtle parallax on hero logo ---------- */
+/* ---------- Subtle parallax on hero cards ---------- */
 const hero=document.getElementById('home');
-const heroLogo=hero.querySelector('.hero-logo');
+const cards=hero.querySelectorAll('.hero-card');
 hero.addEventListener('mousemove',e=>{
-  if(!heroLogo) return;
   const r=hero.getBoundingClientRect();
   const x=(e.clientX-r.left)/r.width-0.5;
   const y=(e.clientY-r.top)/r.height-0.5;
-  heroLogo.style.transform=`translate(${x*12}px,${y*12}px)`;
+  cards.forEach((c,i)=>{
+    const depth=(i+1)*8;
+    c.style.transform=`translate(${x*depth}px,${y*depth}px)`;
+  });
 });
 hero.addEventListener('mouseleave',()=>{
-  if(heroLogo) heroLogo.style.transform='';
+  cards.forEach(c=>c.style.transform='');
 });
 
 onScroll();
