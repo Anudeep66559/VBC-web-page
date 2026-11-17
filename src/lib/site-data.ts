@@ -205,7 +205,7 @@ export const projects: ProjectItem[] = [
 export const contactItems: ContactItem[] = [
   {
     label: "Office Location",
-    value: "1st floor, Mythri Convention building, Kisan Nagar, Karimnagar, Telangana 505001",
+    value: "1st floor, Mythri Convention building, kisannagar, karimnagar, Telangana 505001",
     icon: MapPin,
   },
   {
@@ -254,6 +254,6 @@ export const siteConfig = {
   email: "pradeept3030@gmail.com",
   emailHref: "mailto:pradeept3030@gmail.com",
   address:
-    "1st floor, Mythri Convention building, Kisan Nagar, Karimnagar, Telangana 505001",
+    "1st floor, Mythri Convention building, kisannagar, karimnagar, Telangana 505001",
   copyright: "© 2025 Veerabhadra Constructions. All Rights Reserved.",
 };
