@@ -189,10 +189,12 @@ nav.scrolled{background:rgba(13,17,23,.85);backdrop-filter:blur(14px);padding:.9
 
 /* ---------- CONTACT ---------- */
 #contact{background:linear-gradient(180deg,#0d1117,#161b22)}
-.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;max-width:1200px;margin:0 auto;width:100%}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:3rem;max-width:900px;margin:0 auto;width:100%}
+.contact-info{text-align:center}
 .contact-info h3{font-size:1.8rem;margin-bottom:1rem}
-.contact-info>p{color:var(--muted);margin-bottom:2rem}
-.contact-item{display:flex;gap:1rem;margin-bottom:1.6rem;padding:1.2rem;border:1px solid var(--line);border-radius:12px;background:rgba(28,35,48,.4);transition:all .3s}
+.contact-info>p{color:var(--muted);margin-bottom:2rem;max-width:560px;margin-left:auto;margin-right:auto}
+.contact-info .contact-details{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.contact-item{display:flex;gap:1rem;margin-bottom:0;padding:1.2rem;border:1px solid var(--line);border-radius:12px;background:rgba(28,35,48,.4);transition:all .3s;text-align:left}
 .contact-item:hover{border-color:var(--gold);transform:translateX(6px)}
 .contact-item .ic{width:44px;height:44px;border-radius:10px;background:rgba(201,162,39,.15);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
 .contact-item .tx b{display:block;color:var(--ivory);font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.3rem;font-weight:600}
@@ -507,9 +509,10 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
     <div class="contact-info reveal">
       <h3>Let's Build Together</h3>
       <p>Whether it's a dream home, a commercial hub, or a large-scale development, our goal is to exceed expectations at every stage — from concept and planning to completion and handover.</p>
+      <div class="contact-details">
       <div class="contact-item">
         <div class="ic"><i class="fas fa-map-marker-alt"></i></div>
-        <div class="tx"><b>Office Location</b><span>Ground floor, 8-5-309, Laxminagar, Karimnagar, Telangana, 505001</span></div>
+        <div class="tx"><b>Office Location</b><span>1st floor, Mythri Convention building, kisannagar, karimnagar, Telangana 505001</span></div>
       </div>
       <div class="contact-item">
         <div class="ic"><i class="fas fa-phone"></i></div>
@@ -523,31 +526,9 @@ footer{background:#0a0e14;padding:4rem 6vw 2rem;border-top:1px solid var(--line)
         <div class="ic"><i class="fas fa-clock"></i></div>
         <div class="tx"><b>Working Hours</b><span>Monday – Saturday: 9:00 AM – 6:00 PM</span></div>
       </div>
+      </div>
     </div>
-    <div class="contact-form reveal d1">
-      <h3>Request a Quote</h3>
-      <p>Fill in your details and we'll get back to you within 24 hours.</p>
-      <form id="quoteForm">
-        <div class="field">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" required placeholder="Your name">
-        </div>
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" required placeholder="you@example.com">
-        </div>
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="+91 ...">
-        </div>
-        <div class="field">
-          <label for="message">Project Details</label>
-          <textarea id="message" required placeholder="Tell us about your project..."></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width:100%;justify-content:center">Send Message <i class="fas fa-paper-plane"></i></button>
-        <div class="form-status success" id="formStatus"><i class="fas fa-check-circle"></i> Thank you! Your message has been sent. We'll be in touch shortly.</div>
-      </form>
-    </div>
+
   </div>
 </section>
 
@@ -687,13 +668,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 
 /* ---------- Form handlers ---------- */
-document.getElementById('quoteForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  const status=document.getElementById('formStatus');
-  status.classList.add('show');
-  this.reset();
-  setTimeout(()=>status.classList.remove('show'),5000);
-});
 document.getElementById('newsForm').addEventListener('submit',function(e){
   e.preventDefault();
   const btn=this.querySelector('button');
